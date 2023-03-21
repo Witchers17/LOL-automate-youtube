@@ -1,0 +1,84 @@
+{
+    "team1": {
+        "players": [
+            {
+                "name": "bejjaniii",
+                "kda": "6 / 3 / 1",
+                "rank": "Challenger",
+                "champion": "Gragas"
+            },
+            {
+                "name": "100 Kirei",
+                "kda": "0 / 6 / 9",
+                "rank": "Challenger",
+                "champion": "Hecarim"
+            },
+            {
+                "name": "Allorim",
+                "kda": "1 / 6 / 4",
+                "rank": "Challenger",
+                "champion": "Ornn"
+            },
+            {
+                "name": "10April",
+                "kda": "3 / 7 / 2",
+                "rank": "Challenger",
+                "champion": "Zeri"
+            },
+            {
+                "name": "t d",
+                "kda": "0 / 4 / 4",
+                "rank": "GrandMaster",
+                "champion": "Soraka"
+            }
+        ],
+        "result": "Defeat"
+    },
+    "team2": {
+        "players": [
+            {
+                "name": "Nick Top",
+                "kda": "4 / 1 / 7",
+                "rank": "GrandMaster",
+                "champion": "Camille"
+            },
+            {
+                "name": "Joseph Goldberg",
+                "kda": "6 / 4 / 15",
+                "rank": "Challenger",
+                "champion": "Jarvan IV"
+            },
+            {
+                "name": "Cop\u00fd",
+                "kda": "5 / 0 / 9",
+                "rank": "Challenger",
+                "champion": "Zoe"
+            },
+            {
+                "name": "08adc",
+                "kda": "6 / 5 / 13",
+                "rank": "Challenger",
+                "champion": "Caitlyn"
+            },
+            {
+                "name": "Nausic\u00e4\u00e4a",
+                "kda": "5 / 0 / 15",
+                "rank": "GrandMaster",
+                "champion": "Bard"
+            }
+        ],
+        "result": "Victory"
+    },
+    "duration": "19:23",
+    "patch": "13.5",
+    "mvp": {
+        "name": "Joseph Goldberg",
+        "kda": "6 / 4 / 15",
+        "rank": "Challenger",
+        "champion": "Jarvan IV"
+    },
+    "loser": "Hecarim",
+    "player_role": "Jungle",
+    "player_index": "2",
+    "region": "NA"
+}

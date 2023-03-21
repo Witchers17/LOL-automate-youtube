@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "video-maker"
+version = "0.1.0"
+description = ""
+authors = ["João Maranhão <joaofelipemaranhao@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+selenium = "^4.3.0"
+webdriver-manager = "^3.7.1"
+google-api-python-client = "^2.52.0"
+oauth2client = "^4.1.3"
+PyAutoGUI = "^0.9.53"
+PyDirectInput = "^1.0.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
