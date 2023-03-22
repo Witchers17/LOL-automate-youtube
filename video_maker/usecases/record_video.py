@@ -19,11 +19,30 @@ class RecordVideo:
         self.__run_obs()
         sleep(50)
         self.__select_player()
-        pydirectinput.keyDown('o')
-        pydirectinput.keyUp('o')
-        pydirectinput.keyDown('u')
-        pydirectinput.keyUp('u')
+        
+        # Press Ctrl+Shift+Z
+        pydirectinput.keyDown('ctrl')
+        pydirectinput.keyDown('shift')
+        pydirectinput.keyDown('z')
+
+        # Release Ctrl+Shift+Z
+        pydirectinput.keyUp('ctrl')
+        pydirectinput.keyUp('shift')
+        pydirectinput.keyUp('z')
+        sleep(2)
+        # Scroll the mouse wheel down 5 times
+        for i in range(5):
+            pyautogui.scroll(-1)  # -1 indicates scrolling down
+            # pydirectinput.keyDown('down')
+            # pydirectinput.keyUp('down')
+        sleep(2)
+        pydirectinput.keyDown('c')
+        pydirectinput.keyUp('c')
+        sleep(2)
+        pydirectinput.keyDown('n')
+        pydirectinput.keyUp('n')
         sleep(5)
+        
         self.__start_stop_recording()
         sleep(self.__duration_in_seconds())
         self.__start_stop_recording()

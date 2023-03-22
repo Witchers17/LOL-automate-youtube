@@ -2,34 +2,59 @@
     "team1": {
         "players": [
             {
-                "name": "bejjaniii",
-                "kda": "6 / 3 / 1",
-                "rank": "Challenger",
-                "champion": "Gragas"
-            },
-            {
-                "name": "100 Kirei",
-                "kda": "0 / 6 / 9",
-                "rank": "Challenger",
-                "champion": "Hecarim"
-            },
-            {
-                "name": "Allorim",
-                "kda": "1 / 6 / 4",
-                "rank": "Challenger",
-                "champion": "Ornn"
-            },
-            {
-                "name": "10April",
-                "kda": "3 / 7 / 2",
-                "rank": "Challenger",
-                "champion": "Zeri"
-            },
-            {
-                "name": "t d",
-                "kda": "0 / 4 / 4",
+                "name": "Mike Oxlong",
+                "kda": "5 / 4 / 1",
                 "rank": "GrandMaster",
-                "champion": "Soraka"
+                "champion": "Renekton",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Flash",
+                    "Ignite"
+                ]
+            },
+            {
+                "name": "blueblue",
+                "kda": "7 / 5 / 7",
+                "rank": "Challenger",
+                "champion": "Rengar",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Flash",
+                    "Smite"
+                ]
+            },
+            {
+                "name": "KingSl4yer14",
+                "kda": "3 / 6 / 4",
+                "rank": "GrandMaster",
+                "champion": "Zed",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Ignite",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "CarnivalAzulDe20",
+                "kda": "5 / 6 / 7",
+                "rank": "Master",
+                "champion": "Zeri",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Flash",
+                    "Ghost"
+                ]
+            },
+            {
+                "name": "vyscenk",
+                "kda": "1 / 6 / 8",
+                "rank": "GrandMaster",
+                "champion": "Nautilus",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Ignite",
+                    "Flash"
+                ]
             }
         ],
         "result": "Defeat"
@@ -37,48 +62,78 @@
     "team2": {
         "players": [
             {
-                "name": "Nick Top",
-                "kda": "4 / 1 / 7",
+                "name": "Play For Fun But",
+                "kda": "4 / 6 / 1",
+                "rank": "Master",
+                "champion": "Irelia",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Ignite",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "Wintradeer",
+                "kda": "8 / 1 / 13",
+                "rank": "Challenger",
+                "champion": "Rammus",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Smite",
+                    "Ghost"
+                ]
+            },
+            {
+                "name": "TomasSLS",
+                "kda": "5 / 4 / 5",
+                "rank": "Master",
+                "champion": "Akali",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Flash",
+                    "Ignite"
+                ]
+            },
+            {
+                "name": "KouQQ",
+                "kda": "10 / 5 / 2",
+                "rank": "Master",
+                "champion": "Kai'Sa",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Exhaust",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "Zum Zum Zum",
+                "kda": "0 / 5 / 11",
                 "rank": "GrandMaster",
-                "champion": "Camille"
-            },
-            {
-                "name": "Joseph Goldberg",
-                "kda": "6 / 4 / 15",
-                "rank": "Challenger",
-                "champion": "Jarvan IV"
-            },
-            {
-                "name": "Cop\u00fd",
-                "kda": "5 / 0 / 9",
-                "rank": "Challenger",
-                "champion": "Zoe"
-            },
-            {
-                "name": "08adc",
-                "kda": "6 / 5 / 13",
-                "rank": "Challenger",
-                "champion": "Caitlyn"
-            },
-            {
-                "name": "Nausic\u00e4\u00e4a",
-                "kda": "5 / 0 / 15",
-                "rank": "GrandMaster",
-                "champion": "Bard"
+                "champion": "Heimerdinger",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Conqueror",
+                    "Ignite",
+                    "Flash"
+                ]
             }
         ],
         "result": "Victory"
     },
-    "duration": "19:23",
+    "duration": "24:01",
     "patch": "13.5",
     "mvp": {
-        "name": "Joseph Goldberg",
-        "kda": "6 / 4 / 15",
-        "rank": "Challenger",
-        "champion": "Jarvan IV"
+        "name": "KouQQ",
+        "kda": "10 / 5 / 2",
+        "rank": "Master",
+        "champion": "Kai'Sa",
+        "spell": [
+            "https://www.mobafire.com/images/reforged-rune/Conqueror",
+            "Exhaust",
+            "Flash"
+        ]
     },
-    "loser": "Hecarim",
-    "player_role": "Jungle",
-    "player_index": "2",
-    "region": "NA"
+    "loser": "Zeri",
+    "player_role": "ADC",
+    "player_index": "4",
+    "region": "LAS"
 }

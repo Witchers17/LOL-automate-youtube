@@ -7,6 +7,7 @@ class Player:
     kda: str
     name: str
     rank: str
+    spell:list
 
 
 @dataclass

@@ -16,10 +16,12 @@ class CreateThumbnail:
     def create_thumbnail(self):
         print('Creating thumbnail...')
         champion = self.lol_data['mvp']['champion'].replace(
-            "'", "").capitalize()
-        champion = self.lol_data['mvp']['champion'].replace(
+            "'", "").capitalize().replace(
             " ", "")
+        # champion = self.lol_data['mvp']['champion']
         print(champion)
+        if champion=="KaiSa":
+            champion=="Kaisa"
         rank=self.lol_data['mvp']['rank']
         ranks= {
             "Iron": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/1.png",
@@ -38,11 +40,15 @@ class CreateThumbnail:
         spellImgs=os.listdir("assets/img/spell")
         
         spellImg=random.sample(spellImgs, 3)
-
+        spellImgNew=self.lol_data['mvp']['spell']
+        spellImgNew=[s+'.png' for s in spellImgNew]
+        spellImg=spellImgNew
+        print(spellImg)
+        
         loser=self.lol_data['loser']
         self.__create_html(
             kda=self.lol_data['mvp']['kda'].split("/"),
-            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_2.jpg',
+            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_0.jpg',
             mvp=self.lol_data['mvp']['name'],
             vs=self.lol_data['loser'],
             rank=rank.upper(),
@@ -53,7 +59,7 @@ class CreateThumbnail:
         )
         html_path = os.path.abspath('assets/thumbnail.html')
         self.scrapper.driver.get('file://' + html_path)
-        sleep(2)
+        sleep(10)
         self.scrapper.driver.set_window_size(1280, 805)
         screenshot = self.scrapper.driver.get_screenshot_as_png()
         with Image.open(BytesIO(screenshot)) as img:
@@ -97,7 +103,7 @@ class CreateThumbnail:
             font-family: 'Nanum Gothic', sans-serif;
         }
         .container {
-            background-image: url('"""+imgUrl+"""');
+            background-image: url('"""+imgUrl.replace("'","")+"""');
             background-size: cover;
             width: 1280px;
             height: 720px;
@@ -237,7 +243,7 @@ class CreateThumbnail:
             </div>
             <div class="playerlist">
                 <img class="players" src='../assets/img/kr.png'/>
-                <img class="players" src='../assets/img/spell/"""+spellImg[0]+"""'/>
+                <img class="players" src='"""+spellImg[0]+"""'/>
                 <img class="players" src='../assets/img/spell/"""+spellImg[1]+"""'/>
                 <img class="players" src='../assets/img/spell/"""+spellImg[2]+"""'/>
             </div>
@@ -263,5 +269,5 @@ class CreateThumbnail:
 </body>
 </html>
 """
-        with open("./assets/thumbnail.html", "w") as f:
+        with open("./assets/thumbnail.html", "w",encoding='utf-8') as f:
             f.write(HTML)
