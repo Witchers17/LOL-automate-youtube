@@ -18,30 +18,38 @@ class RecordVideo:
         self.__run_game()
         self.__run_obs()
         sleep(50)
+        # select champion
         self.__select_player()
         
-        # Press Ctrl+Shift+Z
+        sleep(2)
+        pydirectinput.keyDown('c')
+        pydirectinput.keyUp('c')
+        sleep(1)
+        pydirectinput.keyDown('n')
+        pydirectinput.keyUp('n')
+        sleep(1)
+        pydirectinput.keyDown('o')
+        pydirectinput.keyUp('o')
+        sleep(1)
+        pydirectinput.keyDown('u')
+        pydirectinput.keyUp('u')
+        sleep(5)
+        # zoom out
+        # Press and hold Ctrl+Shift+Z
         pydirectinput.keyDown('ctrl')
         pydirectinput.keyDown('shift')
         pydirectinput.keyDown('z')
 
-        # Release Ctrl+Shift+Z
+        # Move mouse pointer down 5 times
+        for i in range(5):
+            pydirectinput.moveRel(0, 50)
+
+        # Release all keys
         pydirectinput.keyUp('ctrl')
         pydirectinput.keyUp('shift')
         pydirectinput.keyUp('z')
-        sleep(2)
-        # Scroll the mouse wheel down 5 times
-        for i in range(5):
-            pyautogui.scroll(-1)  # -1 indicates scrolling down
-            # pydirectinput.keyDown('down')
-            # pydirectinput.keyUp('down')
-        sleep(2)
-        pydirectinput.keyDown('c')
-        pydirectinput.keyUp('c')
-        sleep(2)
-        pydirectinput.keyDown('n')
-        pydirectinput.keyUp('n')
-        sleep(5)
+        # zoom out end
+        
         
         self.__start_stop_recording()
         sleep(self.__duration_in_seconds())
@@ -63,7 +71,7 @@ class RecordVideo:
         subprocess.run(["start", "cmd", "/c", f"{self.__replay_file_dir}\{file}"], shell=True)
 
     def __run_obs(self):
-        pyautogui.hotkey('super', '4')
+        pyautogui.hotkey('super', '1')
 
     def __select_player(self):
         if self.__match_data['team1']['result'] == 'Victory':
