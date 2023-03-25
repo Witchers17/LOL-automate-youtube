@@ -14,6 +14,7 @@ thumb_creator.create_thumbnail()
 
 video_recorder = RecordVideo(lol_data)
 video_file_name = video_recorder.record()
+# # video_file_name = video_recorder.select_video_file()
 
 youtube_uploader = UploadYoutube(lol_data, video_file_name)
 youtube_uploader.upload_video()

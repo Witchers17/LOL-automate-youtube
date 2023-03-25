@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from chromedriver_autoinstaller import install as chromedriver_install
+
+
 import os
 class DataScrapper:
     def __init__(self) -> None:

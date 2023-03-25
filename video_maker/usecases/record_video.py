@@ -15,10 +15,19 @@ class RecordVideo:
     def record(self):
         # self.__show_mouse_position()
         print('Starting recording of the match...')
+        self.remove_video_file()
         self.__run_game()
         self.__run_obs()
         sleep(50)
-                
+        # Get the size of the screen
+        screen_width, screen_height = pydirectinput.size()
+
+        # Calculate the center of the screen
+        center_x = int(screen_width / 2)
+        center_y = int(screen_height / 2)
+
+        # Click on the center of the screen
+        pydirectinput.click(center_x, center_y)
         pydirectinput.keyDown('n')
         pydirectinput.keyUp('n')
         sleep(1)
@@ -36,19 +45,21 @@ class RecordVideo:
         pydirectinput.keyUp('c')
         sleep(1)
         # zoom out
+
+        # Click on the center of the screen
+        pydirectinput.click(center_x, center_y)
         # Press and hold Ctrl+Shift+Z
         pydirectinput.keyDown('ctrl')
         pydirectinput.keyDown('shift')
         pydirectinput.keyDown('z')
-
-        # Move mouse pointer down 5 times
-        for i in range(5):
-            pydirectinput.moveRel(0, 50)
-
-        # Release all keys
         pydirectinput.keyUp('ctrl')
         pydirectinput.keyUp('shift')
         pydirectinput.keyUp('z')
+        # Move mouse pointer down 5 times
+        pyautogui.scroll(-700)
+
+        # Release all keys
+
         # zoom out end
         
         
@@ -119,5 +130,6 @@ class RecordVideo:
 
     def remove_video_file(self):
         file = os.listdir(self.__video_file_dir)
-        os.rename(os.path.join(self.__video_file_dir, file[0]), os.path.join(
-            os.path.dirname(self.__video_file_dir), 'uploaded', file[0]))
+        for i in range(len(file)):
+            os.rename(os.path.join(self.__video_file_dir, file[i]), os.path.join(
+                os.path.dirname(self.__video_file_dir), 'uploaded', file[i]))
