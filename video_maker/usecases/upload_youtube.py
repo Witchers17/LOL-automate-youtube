@@ -18,7 +18,28 @@ class UploadYoutube:
         self.__thumb_file = os.path.abspath(r'.\media\thumb\thumb.png')
         self.__file = video_file_name
         # self.__title = (f"{match_data['mvp']['champion']} {match_data['player_role']} vs {match_data['loser']} - {match_data['region']} {match_data['mvp']['rank']} Patch ")
-        self.__title=f"""롤 랭킹 몇위 티어 포지션 챔피언 "{match_data['mvp']['name']}" | Patch {match_data['patch']}"""
+        role_map = {
+            'Top': '탑',
+            'Jungle': '정글',
+            'Mid': '미드',
+            'ADC': '원딜',
+            'Support': '서폿'
+        }
+        tier_map = {
+            'Iron': '아이언',
+            'Bronze': '브론즈',
+            'Silver': '실버',
+            'Gold': '골드',
+            'Platinum': '플래티넘',
+            'Diamond': '다이아몬드',
+            'Master': '마스터',
+            'Grandmaster': '그랜드마스터',
+            'Challenger': '챌린저'
+        }
+
+        translated_role = role_map.get(match_data['player_role'], 'Unknown')
+        korean_tier = tier_map.get(match_data['mvp']['rank'], 'Unknown')
+        self.__title=f"""롤 {korean_tier} {translated_role} {match_data['mvp']['champion']} "{match_data['mvp']['name']}" | Patch {match_data['patch']}"""
         self.__description = f"""
     {match_data['mvp']['champion']} {match_data['player_role']} played by {match_data['mvp']['name']} at #{match_data['region']}{match_data['mvp']['rank']}
 

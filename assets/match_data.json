@@ -1,1 +1,139 @@
-{"team1": {"players": [{"name": "Cabwessa", "kda": "8 / 4 / 5", "rank": "Master", "champion": "Urgot", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Teleport"]}, {"name": "G2 ANDREWTAT3", "kda": "9 / 1 / 15", "rank": "Master", "champion": "Fiddlesticks", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Smite", "Flash"]}, {"name": "Decidophobia", "kda": "12 / 5 / 6", "rank": "GrandMaster", "champion": "Talon", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Teleport", "Flash"]}, {"name": "Thom\u00e2s Sh\u00eaIby", "kda": "10 / 9 / 8", "rank": "GrandMaster", "champion": "Yasuo", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Exhaust"]}, {"name": "Clarence Kennedy", "kda": "5 / 6 / 10", "rank": "GrandMaster", "champion": "Pyke", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Ignite"]}], "result": "Victory"}, "team2": {"players": [{"name": "MARVIN 1V9 ULTRA", "kda": "0 / 9 / 1", "rank": "Master", "champion": "Singed", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Ghost"]}, {"name": "Chainsaw M\u03b1n", "kda": "2 / 10 / 10", "rank": "GrandMaster", "champion": "Xin Zhao", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Smite"]}, {"name": "Deeathh", "kda": "7 / 7 / 0", "rank": "Master", "champion": "Cassiopeia", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Flash", "Exhaust"]}, {"name": "yarr agriyor", "kda": "16 / 8 / 3", "rank": "Challenger", "champion": "Kai'Sa", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Exhaust", "Flash"]}, {"name": "coldxn", "kda": "0 / 11 / 16", "rank": "Challenger", "champion": "Thresh", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Ignite", "Flash"]}], "result": "Defeat"}, "duration": "24:02", "patch": "13.6", "mvp": {"name": "Decidophobia", "kda": "12 / 5 / 6", "rank": "GrandMaster", "champion": "Talon", "spell": ["https://www.mobafire.com/images/reforged-rune/Press-the-Attack", "Teleport", "Flash"]}, "loser": "Cassiopeia", "player_role": "Mid", "player_index": "3", "region": "EUW"}
+{
+    "team1": {
+        "players": [
+            {
+                "name": "Cabwessa",
+                "kda": "8 / 4 / 5",
+                "rank": "Master",
+                "champion": "Urgot",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Teleport"
+                ]
+            },
+            {
+                "name": "G2 ANDREWTAT3",
+                "kda": "9 / 1 / 15",
+                "rank": "Master",
+                "champion": "Fiddlesticks",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Smite",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "Decidophobia",
+                "kda": "12 / 5 / 6",
+                "rank": "GrandMaster",
+                "champion": "Talon",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Teleport",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "Thom\u00e2s Sh\u00eaIby",
+                "kda": "10 / 9 / 8",
+                "rank": "GrandMaster",
+                "champion": "Yasuo",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Exhaust"
+                ]
+            },
+            {
+                "name": "Clarence Kennedy",
+                "kda": "5 / 6 / 10",
+                "rank": "GrandMaster",
+                "champion": "Pyke",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Ignite"
+                ]
+            }
+        ],
+        "result": "Victory"
+    },
+    "team2": {
+        "players": [
+            {
+                "name": "MARVIN 1V9 ULTRA",
+                "kda": "0 / 9 / 1",
+                "rank": "Master",
+                "champion": "Singed",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Ghost"
+                ]
+            },
+            {
+                "name": "Chainsaw M\u03b1n",
+                "kda": "2 / 10 / 10",
+                "rank": "GrandMaster",
+                "champion": "Xin Zhao",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Smite"
+                ]
+            },
+            {
+                "name": "Deeathh",
+                "kda": "7 / 7 / 0",
+                "rank": "Master",
+                "champion": "Cassiopeia",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Flash",
+                    "Exhaust"
+                ]
+            },
+            {
+                "name": "yarr agriyor",
+                "kda": "16 / 8 / 3",
+                "rank": "Challenger",
+                "champion": "Kai'Sa",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Exhaust",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "coldxn",
+                "kda": "0 / 11 / 16",
+                "rank": "Challenger",
+                "champion": "Thresh",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "Ignite",
+                    "Flash"
+                ]
+            }
+        ],
+        "result": "Defeat"
+    },
+    "duration": "24:02",
+    "patch": "13.6",
+    "mvp": {
+        "name": "Decidophobia",
+        "kda": "12 / 5 / 6",
+        "rank": "GrandMaster",
+        "champion": "Talon",
+        "spell": [
+            "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+            "Teleport",
+            "Flash"
+        ]
+    },
+    "loser": "Cassiopeia",
+    "player_role": "Mid",
+    "player_index": "3",
+    "region": "EUW"
+}
