@@ -114,7 +114,7 @@ if exist "League of Legends.exe" (
 goto notfound
 
 :start
-@start "" "League of Legends.exe" "spectator replays.leagueofgraphs.com:80 8mcrfSjxfF4FumoA6Y9pQWHNgXX/tY3/ 1280937247 LA2-%RANDOM%%RANDOM%" -UseRads -GameBaseDir=.. "-Locale=%locale%" -SkipBuild -EnableCrashpad=true -EnableLNP
+@start "" "League of Legends.exe" "spectator replays.leagueofgraphs.com:80 Xz1jgYx+KYZfPOmYh1yj/WWukVkD4iaH 54630405 VN2-%RANDOM%%RANDOM%" -UseRads -GameBaseDir=.. "-Locale=%locale%" -SkipBuild -EnableCrashpad=true -EnableLNP
 goto exit
 
 :Trim

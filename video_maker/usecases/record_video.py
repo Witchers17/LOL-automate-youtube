@@ -18,13 +18,7 @@ class RecordVideo:
         self.__run_game()
         self.__run_obs()
         sleep(50)
-        # select champion
-        self.__select_player()
-        
-        sleep(2)
-        pydirectinput.keyDown('c')
-        pydirectinput.keyUp('c')
-        sleep(1)
+                
         pydirectinput.keyDown('n')
         pydirectinput.keyUp('n')
         sleep(1)
@@ -34,6 +28,13 @@ class RecordVideo:
         pydirectinput.keyDown('u')
         pydirectinput.keyUp('u')
         sleep(5)
+        # select champion
+        self.__select_player()
+        
+        sleep(2)
+        pydirectinput.keyDown('c')
+        pydirectinput.keyUp('c')
+        sleep(1)
         # zoom out
         # Press and hold Ctrl+Shift+Z
         pydirectinput.keyDown('ctrl')
