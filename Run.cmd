@@ -6,6 +6,7 @@ if not exist venv (
 )
 call venv\Scripts\activate
 echo Updating from remote repository...
+git restore .
 git pull
 echo Installing dependencies...
 pip install -r requirements.txt
