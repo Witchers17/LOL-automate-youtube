@@ -3,6 +3,8 @@ from PIL import Image
 import os
 import random
 from time import sleep
+
+import requests
 from entities.data_scrapper import DataScrapper
 from entities.match_data import MatchData
 
@@ -46,16 +48,35 @@ class CreateThumbnail:
         print(spellImg)
         
         loser=self.lol_data['loser']
+        imgUrl=""
+        count=0
+        print("match region:",self.lol_data['region'],os.path.exists(f"assets/img/{self.lol_data['region']}.png"))
+        if(os.path.exists(f"assets/img/{self.lol_data['region']}.png")):
+            region=self.lol_data['region']
+        else:
+            region="EUW"
+        while True:
+            no=random.randint(0,10)
+            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_{no}.jpg'
+            res=requests.get(imgUrl)
+
+            if res.status_code==200:
+                print(imgUrl)
+                break
+            count=+1
+            if(count>20):
+                return
         self.__create_html(
             kda=self.lol_data['mvp']['kda'].split("/"),
-            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_0.jpg',
+            imgUrl=imgUrl,
             mvp=self.lol_data['mvp']['name'],
             vs=self.lol_data['loser'],
             rank=rank.upper(),
             patch=self.lol_data['patch'],
             rankIcon=rankIcon,
             spellImg=spellImg,
-            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{champion.replace(" ","")}.png'
+            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{champion.replace(" ","")}.png',
+            region=region
         )
         html_path = os.path.abspath('assets/thumbnail.html')
         self.scrapper.driver.get('file://' + html_path)
@@ -68,7 +89,7 @@ class CreateThumbnail:
         print('Thumbnail created!')
         self.scrapper.driver.quit()
 
-    def __create_html(self, kda: str, mvp: str, vs: str, rank: str, patch: str, imgUrl: str,rankIcon:str,spellImg:list,opponentIcon:str):
+    def __create_html(self, kda: str, mvp: str, vs: str, rank: str, patch: str, imgUrl: str,rankIcon:str,spellImg:list,opponentIcon:str,region):
         none_vars = []
         if kda is None:
             none_vars.append('kda')
@@ -136,7 +157,7 @@ class CreateThumbnail:
             height:4rem;
             align-items: center;
             border: 2px solid white;
-            margin: 0px 7px 5px 18px;
+            margin: 2px 7px 5px 18px;
         }
         .match {
             display: flex;
@@ -147,7 +168,7 @@ class CreateThumbnail:
         .mvp {
             font-size: 3.5rem; /* set the font size to 10% of the viewport width */
             position: absolute;
-            bottom: 150px;
+            bottom: 158px;
             white-space: nowrap;
         }
         .vs {
@@ -172,15 +193,16 @@ class CreateThumbnail:
             font-weight: bold;
         }
         .kdatext{
-            font-size: 3rem;
-            padding: .5rem 1.5rem;
-            background-color: white;
+            font-size: 58px;
+            padding: 0px 1.5rem;
+            background-color: #c9c8c6;
             color:black;
             width:10rem;
             font-weight: bold;
             border-radius:2rem;
             text-align-last: end;
             align-self: self-end;
+            margin-bottom: 3px;
         }
         .line {
             border: none;
@@ -242,7 +264,7 @@ class CreateThumbnail:
                 <p>"""+rank+"""</p>
             </div>
             <div class="playerlist">
-                <img class="players" src='../assets/img/kr.png'/>
+                <img class="players" src='../assets/img/"""+region+""".png'/>
                 <img class="players" src='"""+spellImg[0]+"""'/>
                 <img class="players" src='../assets/img/spell/"""+spellImg[1]+"""'/>
                 <img class="players" src='../assets/img/spell/"""+spellImg[2]+"""'/>

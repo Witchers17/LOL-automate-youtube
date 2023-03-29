@@ -2,58 +2,58 @@
     "team1": {
         "players": [
             {
-                "name": "Cabwessa",
-                "kda": "8 / 4 / 5",
-                "rank": "Master",
-                "champion": "Urgot",
+                "name": "\uc8fd\ub9bc\ucd08",
+                "kda": "2 / 2 / 4",
+                "rank": "Challenger",
+                "champion": "Jax",
                 "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Flash",
-                    "Teleport"
-                ]
-            },
-            {
-                "name": "G2 ANDREWTAT3",
-                "kda": "9 / 1 / 15",
-                "rank": "Master",
-                "champion": "Fiddlesticks",
-                "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Smite",
-                    "Flash"
-                ]
-            },
-            {
-                "name": "Decidophobia",
-                "kda": "12 / 5 / 6",
-                "rank": "GrandMaster",
-                "champion": "Talon",
-                "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
                     "Teleport",
                     "Flash"
                 ]
             },
             {
-                "name": "Thom\u00e2s Sh\u00eaIby",
-                "kda": "10 / 9 / 8",
-                "rank": "GrandMaster",
-                "champion": "Yasuo",
+                "name": "hzw",
+                "kda": "7 / 2 / 9",
+                "rank": "Challenger",
+                "champion": "Lee Sin",
                 "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Flash",
-                    "Exhaust"
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Smite",
+                    "Flash"
                 ]
             },
             {
-                "name": "Clarence Kennedy",
-                "kda": "5 / 6 / 10",
+                "name": "lvoryy",
+                "kda": "3 / 1 / 13",
                 "rank": "GrandMaster",
-                "champion": "Pyke",
+                "champion": "Annie",
                 "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
                     "Flash",
-                    "Ignite"
+                    "Teleport"
+                ]
+            },
+            {
+                "name": "xi1",
+                "kda": "11 / 1 / 9",
+                "rank": "Challenger",
+                "champion": "Jinx",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Ghost",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "Sharx",
+                "kda": "1 / 2 / 17",
+                "rank": "GrandMaster",
+                "champion": "Thresh",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Ignite",
+                    "Flash"
                 ]
             }
         ],
@@ -62,56 +62,56 @@
     "team2": {
         "players": [
             {
-                "name": "MARVIN 1V9 ULTRA",
-                "kda": "0 / 9 / 1",
-                "rank": "Master",
-                "champion": "Singed",
-                "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Flash",
-                    "Ghost"
-                ]
-            },
-            {
-                "name": "Chainsaw M\u03b1n",
-                "kda": "2 / 10 / 10",
-                "rank": "GrandMaster",
-                "champion": "Xin Zhao",
-                "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Flash",
-                    "Smite"
-                ]
-            },
-            {
-                "name": "Deeathh",
-                "kda": "7 / 7 / 0",
-                "rank": "Master",
-                "champion": "Cassiopeia",
-                "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Flash",
-                    "Exhaust"
-                ]
-            },
-            {
-                "name": "yarr agriyor",
-                "kda": "16 / 8 / 3",
+                "name": "\ubbf8\uce5c\ub4ef\uc774 \ud30c\uc774\ud305",
+                "kda": "2 / 2 / 0",
                 "rank": "Challenger",
-                "champion": "Kai'Sa",
+                "champion": "LeBlanc",
                 "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-                    "Exhaust",
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Flash",
+                    "Teleport"
+                ]
+            },
+            {
+                "name": "\ubaa8\ub798\uc0c1\uc790",
+                "kda": "2 / 6 / 2",
+                "rank": "Challenger",
+                "champion": "Viego",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Smite",
                     "Flash"
                 ]
             },
             {
-                "name": "coldxn",
-                "kda": "0 / 11 / 16",
+                "name": "\ubc00\ub9ac\uc624\uc758 \ubb38\ub2e8\uc18d",
+                "kda": "1 / 6 / 2",
                 "rank": "Challenger",
-                "champion": "Thresh",
+                "champion": "Sion",
                 "spell": [
-                    "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Teleport",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "\uc774\uae30\uace0\uc2f6\ub31c\uc544",
+                "kda": "2 / 6 / 2",
+                "rank": "Challenger",
+                "champion": "Zeri",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+                    "Cleanse",
+                    "Flash"
+                ]
+            },
+            {
+                "name": "pinvvei",
+                "kda": "0 / 4 / 5",
+                "rank": "Challenger",
+                "champion": "Rakan",
+                "spell": [
+                    "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
                     "Ignite",
                     "Flash"
                 ]
@@ -119,21 +119,21 @@
         ],
         "result": "Defeat"
     },
-    "duration": "24:02",
+    "duration": "22:42",
     "patch": "13.6",
     "mvp": {
-        "name": "Decidophobia",
-        "kda": "12 / 5 / 6",
-        "rank": "GrandMaster",
-        "champion": "Talon",
+        "name": "xi1",
+        "kda": "11 / 1 / 9",
+        "rank": "Challenger",
+        "champion": "Jinx",
         "spell": [
-            "https://www.mobafire.com/images/reforged-rune/Press-the-Attack",
-            "Teleport",
+            "https://www.mobafire.com/images/reforged-rune/Lethal-Tempo",
+            "Ghost",
             "Flash"
         ]
     },
-    "loser": "Cassiopeia",
-    "player_role": "Mid",
-    "player_index": "3",
-    "region": "EUW"
+    "loser": "Zeri",
+    "player_role": "ADC",
+    "player_index": "4",
+    "region": "KR"
 }

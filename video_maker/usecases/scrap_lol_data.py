@@ -13,8 +13,8 @@ class ScrapLolData(DataScrapper):
         # URL
         self.__replay_file_dir = os.path.abspath(r'.\media\replays')
         self.__url = 'https://www.leagueofgraphs.com/replays/with-high-kda/grandmaster/sr-ranked'
-        # self.__url = 'https://www.leagueofgraphs.com/ko/replays/all/kr/challenger/sr-ranked'
-        # self.__url = 'https://www.leagueofgraphs.com/replays/all/kr/challenger/sr-ranked'
+        # self.__url = 'https://www.leagueofgraphs.com/replays/with-high-kda/euw/grandmaster/sr-ranked'
+
         self.__champions_xpath_selector = '//*[contains(concat( " ", @class, " " ), concat( " ", "relative", " " ))]//img'
         self.__match_table_selector = '//*[contains(concat( " ", @class, " " ), concat( " ", "matchTable", " " ))]'
         self.__region_xpath = '//*[(@id = "mainContent")]//a'
@@ -280,7 +280,7 @@ class ScrapLolData(DataScrapper):
         self.driver.execute_script("arguments[0].click();", watch_button)
         sleep(1)
         self.driver.execute_script("arguments[0].click();", download_button)
-        sleep(5)
+        sleep(20)
 
     def __remove_match(self):
         file = os.listdir(self.__replay_file_dir)
