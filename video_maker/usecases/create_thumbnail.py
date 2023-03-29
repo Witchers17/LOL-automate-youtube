@@ -85,6 +85,7 @@ class CreateThumbnail:
         screenshot = self.scrapper.driver.get_screenshot_as_png()
         with Image.open(BytesIO(screenshot)) as img:
             img = img.convert('RGB')
+            img = img.resize((1280, 754))
             img.save(self.__thumb_path, quality=70)
         print('Thumbnail created!')
         self.scrapper.driver.quit()

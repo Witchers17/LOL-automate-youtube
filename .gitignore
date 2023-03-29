@@ -160,7 +160,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Credentials
-# client_secrets.json
-# storage-oauth2.json
-
+assets/match_data.json
+assets/thumbnail.html

@@ -57,6 +57,7 @@ class ScrapLolData(DataScrapper):
             int(mvp_data['player_index']) + 1)
         region_link = self.driver.find_element(
             by=By.XPATH, value=self.__region_xpath)
+        self.match_data['match']=region_link.get_property('href')
         link_array = region_link.get_property('href').split('/')
         self.match_data['region'] = link_array[4].upper()
         # Save Data
@@ -98,9 +99,17 @@ class ScrapLolData(DataScrapper):
             print(e)
             newTooltipData_str=newTooltipData_str.split("}")[0]
             newTooltipData_str="".join(newTooltipData_str)
-            newTooltipData = json.loads(newTooltipData_str)
-            # print(newTooltipData_str)
-            # return
+            try:
+                newTooltipData = json.loads(newTooltipData_str)
+            except:
+                newTooltipData_str=newTooltipData_str+'"}'
+                try:
+                    newTooltipData = json.loads(newTooltipData_str)
+                except:
+                    with open('new_tooltip_data.json', 'w') as f:
+                        f.write(newTooltipData_str)
+                    print("Check after sometime")
+                    return
         common=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[2]")
         name1=common.find_element(by=By.XPATH, value="./*[1]").text.split("\n")[0]
         kda1=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[2]/div[1]").text
@@ -119,7 +128,7 @@ class ScrapLolData(DataScrapper):
         kda2=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[2]/div[1]").text
         rank2=common.text.split()[-1]
         spell2=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell2[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell2[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[1]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -131,7 +140,7 @@ class ScrapLolData(DataScrapper):
         kda3=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[2]/div[1]").text
         rank3=common.text.split()[-1]
         spell3=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell3[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell3[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[1]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -143,7 +152,7 @@ class ScrapLolData(DataScrapper):
         kda4=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[2]/div[1]").text
         rank4=common.text.split()[-1]
         spell4=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell4[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell4[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[1]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -155,7 +164,7 @@ class ScrapLolData(DataScrapper):
         kda5=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[2]/div[1]").text
         rank5=common.text.split()[-1]
         spell5=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell5[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell5[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[1]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -180,27 +189,38 @@ class ScrapLolData(DataScrapper):
             newTooltipData = json.loads(newTooltipData_str)
         except Exception as e:
             print(e)
-            print(newTooltipData_str)
-            return
+            newTooltipData_str=newTooltipData_str.split("}")[0]
+            newTooltipData_str="".join(newTooltipData_str)
+            try:
+                newTooltipData = json.loads(newTooltipData_str)
+            except:
+                newTooltipData_str=newTooltipData_str+'"}'
+                try:
+                    newTooltipData = json.loads(newTooltipData_str)
+                except:
+                    with open('new_tooltip_data.json', 'w') as f:
+                        f.write(newTooltipData_str)
+                    print("Check after sometime")
+                    return
         common=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[6]/div/div[2]")
         
         name1=common.find_element(by=By.XPATH, value="./*[1]").text.split("\n")[0]
         kda1=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[5]/div[1]").text
         rank1=common.text.split()[-1]
         spell1=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[6]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell1[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell1[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[6]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
         spell1[2]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[6]/div/div[1]/a/div[2]/div[3]/img").get_attribute("alt")
-        
+        # //*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[6]/div/div[2]
         common=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[6]/div/div[2]")
         
         name2=common.find_element(by=By.XPATH, value="./*[1]").text.split("\n")[0]
         kda2=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[5]/div[1]").text
         rank2=common.text.split()[-1]
         spell2=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[6]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell2[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell2[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[3]/td[6]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -212,7 +232,7 @@ class ScrapLolData(DataScrapper):
         kda3=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[5]/div[1]").text
         rank3=common.text.split()[-1]
         spell3=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[6]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell3[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell3[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[4]/td[6]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -224,7 +244,7 @@ class ScrapLolData(DataScrapper):
         kda4=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[5]/div[1]").text
         rank4=common.text.split()[-1]
         spell4=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[6]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell4[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell4[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[5]/td[6]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -236,7 +256,7 @@ class ScrapLolData(DataScrapper):
         kda5=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[5]/div[1]").text
         rank5=common.text.split()[-1]
         spell5=3*[""]
-        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[2]/td[1]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
+        tooltip_var=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[6]/div/div[1]/a/div[2]/div[1]/img").get_attribute("tooltip-var")
         rune=newTooltipData[tooltip_var].split("""<div class="perkTitle">""")[1].split("""</div>""")[0]
         spell5[0]=f'https://www.mobafire.com/images/reforged-rune/{rune.replace(" ","-")}'
         spell5[1]=self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/div[1]/table/tbody/tr[6]/td[6]/div/div[1]/a/div[2]/div[2]/img").get_attribute("alt")
@@ -256,7 +276,6 @@ class ScrapLolData(DataScrapper):
             for player in match_data['team1']['players']:
                 team = 'team1'
                 loser_team = 'team2'
-                print(player['kda'])
                 kdas.append(int(player['kda'].split(' ')[0]))
         else:
             for player in match_data['team2']['players']:

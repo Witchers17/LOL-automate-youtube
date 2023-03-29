@@ -6,9 +6,10 @@ if not exist venv (
 )
 call venv\Scripts\activate
 echo Updating from remote repository...
-git restore .
+@REM git restore .
 git pull
 echo Installing dependencies...
+@echo off
 pip install -r requirements.txt
 echo Running script...
 call python video_maker/main.py
