@@ -242,6 +242,7 @@ class CreateThumbnail:
             background-color: rgba(255, 255, 255, .1);
             filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
             border: 5px solid white;
+            margin: 0px 7px;
           }
           .playerlist{
             position: absolute;
