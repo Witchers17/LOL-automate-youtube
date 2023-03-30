@@ -7,6 +7,7 @@ from time import sleep
 import requests
 from entities.data_scrapper import DataScrapper
 from entities.match_data import MatchData
+from entities.progress import print_progress
 
 
 class CreateThumbnail:
@@ -14,14 +15,16 @@ class CreateThumbnail:
         self.scrapper = data_scrapper
         self.lol_data = data
         self.__thumb_path = os.path.abspath(r'.\media\thumb\thumb.png')
+        self.total=100
+        print_progress(1, self.total, prefix='Creating Thumbnail:')
 
     def create_thumbnail(self):
-        print('Creating thumbnail...')
+        print_progress(5, self.total, prefix='Creating Thumbnail:')
         champion = self.lol_data['mvp']['champion'].replace(
             "'", "").capitalize().replace(
             " ", "")
         # champion = self.lol_data['mvp']['champion']
-        print(champion)
+        print_progress(8, self.total, prefix='Creating Thumbnail:')
         if champion=="KaiSa":
             champion=="Kaisa"
         rank=self.lol_data['mvp']['rank']
@@ -36,21 +39,22 @@ class CreateThumbnail:
             "GrandMaster": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/8.png",
             "Challenger": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/9.png"
         }
+        print_progress(12, self.total, prefix='Creating Thumbnail:')
         rankIcon=ranks.get(rank)
         if(rankIcon is None):
             rankIcon="https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/9.png"
         spellImgs=os.listdir("assets/img/spell")
-        
+        print_progress(19, self.total, prefix='Creating Thumbnail:')
         spellImg=random.sample(spellImgs, 3)
         spellImgNew=self.lol_data['mvp']['spell']
         spellImgNew=[s+'.png' for s in spellImgNew]
         spellImg=spellImgNew
-        print(spellImg)
+        print_progress(25, self.total, prefix='Creating Thumbnail:')
         
         loser=self.lol_data['loser']
         imgUrl=""
         count=0
-        print("match region:",self.lol_data['region'],os.path.exists(f"assets/img/{self.lol_data['region']}.png"))
+        # print("match region:",self.lol_data['region'],os.path.exists(f"assets/img/{self.lol_data['region']}.png"))
         if(os.path.exists(f"assets/img/{self.lol_data['region']}.png")):
             region=self.lol_data['region']
         else:
@@ -61,11 +65,12 @@ class CreateThumbnail:
             res=requests.get(imgUrl)
 
             if res.status_code==200:
-                print(imgUrl)
+                # print(imgUrl)
                 break
             count=+1
             if(count>20):
                 return
+        print_progress(40, self.total, prefix='Creating Thumbnail:')
         self.__create_html(
             kda=self.lol_data['mvp']['kda'].split("/"),
             imgUrl=imgUrl,
@@ -78,16 +83,23 @@ class CreateThumbnail:
             opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{champion.replace(" ","")}.png',
             region=region
         )
+        print_progress(50, self.total, prefix='Creating Thumbnail:')
         html_path = os.path.abspath('assets/thumbnail.html')
         self.scrapper.driver.get('file://' + html_path)
-        sleep(10)
+        timer=51
+        for i in range(10):
+            sleep(10)
+            print_progress(timer+i*2, self.total, prefix='Creating Thumbnail:')
         self.scrapper.driver.set_window_size(1280, 805)
+        print_progress(81, self.total, prefix='Creating Thumbnail:')
         screenshot = self.scrapper.driver.get_screenshot_as_png()
+        print_progress(91, self.total, prefix='Creating Thumbnail:')
         with Image.open(BytesIO(screenshot)) as img:
             img = img.convert('RGB')
             img = img.resize((1280, 754))
             img.save(self.__thumb_path, quality=70)
-        print('Thumbnail created!')
+        print_progress(100, self.total, prefix='Creating Thumbnail:')
+        
         self.scrapper.driver.quit()
 
     def __create_html(self, kda: str, mvp: str, vs: str, rank: str, patch: str, imgUrl: str,rankIcon:str,spellImg:list,opponentIcon:str,region):
@@ -109,7 +121,7 @@ class CreateThumbnail:
         if spellImg is None:
             none_vars.append('spellImg')
         if none_vars:
-            print(f"One or more arguments are None: {', '.join(none_vars)}")
+            # print(f"One or more arguments are None: {', '.join(none_vars)}")
             return
         HTML = """<!DOCTYPE html>
 <html>

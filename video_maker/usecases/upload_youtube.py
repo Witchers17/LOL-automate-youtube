@@ -9,7 +9,7 @@ from googleapiclient.http import MediaFileUpload
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import run_flow
-
+from tqdm import tqdm
 from entities.match_data import MatchData
 
 
@@ -96,7 +96,9 @@ class UploadYoutube:
             "keywords": self.__keywords,
             "privacyStatus": self.__VALID_PRIVACY_STATUSES[1]
         }
-
+    def progress_bar(self,progress):
+        self.pbar.update(progress - self.pbar.n)
+        
     def __get_authenticated_service(self):
         flow = flow_from_clientsecrets(self.__CLIENT_SECRETS_FILE,
                                        scope=self.__YOUTUBE_UPLOAD_SCOPE,
@@ -112,7 +114,7 @@ class UploadYoutube:
                      http=credentials.authorize(httplib2.Http()))
 
     def __initialize_upload(self):
-        print('===== Video uploading section ========')
+        # print('===== Video uploading section ========')
         youtube = self.__get_authenticated_service()
         options = self.__build_video_data()
         tags = None
@@ -130,16 +132,17 @@ class UploadYoutube:
                 privacyStatus=options['privacyStatus']
             )
         )
-
-        # Call the API's videos.insert method to create and upload the video.
+        # Set chunksize to 1 MB  nochunk -1 it mean upload at once
+        chunksize =-1
+        
         insert_request = youtube.videos().insert(
             part=",".join(body.keys()),
             body=body,
             media_body=MediaFileUpload(
-                options['file'], chunksize=-1, resumable=True)
+                options['file'], chunksize=chunksize, resumable=True)
         )
 
-        video_id = insert_request.execute()["id"]
+        video_id = self.__resumable_upload(insert_request)
         self.__upload_thumbnail(youtube, video_id)
 
     def __resumable_upload(self, insert_request):
@@ -147,8 +150,9 @@ class UploadYoutube:
         error = None
         retry = 0
         while response is None:
+            print(response)
             try:
-                print("Uploading file...")
+                # print("Uploading file...")
                 status, response = insert_request.next_chunk()
                 if response is not None:
                     if 'id' in response:

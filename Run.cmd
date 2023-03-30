@@ -1,17 +1,13 @@
 @echo off
-echo Activating virtual environment...
 if not exist venv (
-    echo Creating virtual environment...
     python -m venv venv
 )
 call venv\Scripts\activate
-echo Updating from remote repository...
-@REM git restore .
-git pull
-echo Installing dependencies...
+@REM git add .
+git pull> log.txt 2>&1
 @echo off
-pip install -r requirements.txt
-echo Running script...
+pip install -r requirements.txt > log.txt 2>&1
+
 call python video_maker/main.py
 
 

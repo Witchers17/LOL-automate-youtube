@@ -37,4 +37,13 @@ if __name__=="__main__":
         time.sleep(0.1)
         # update progress bar
         print_progress(i + 1, total, prefix='Progress:')
+    # example usage
+    import time
+
+    total = 103
+    for i in range(total):
+        # do some work here
+        time.sleep(0.1)
+        # update progress bar
+        print_progress(i + 1, total, prefix='Progress:')
 

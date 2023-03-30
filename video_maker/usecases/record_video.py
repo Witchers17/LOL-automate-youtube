@@ -4,6 +4,7 @@ import subprocess
 import pyautogui
 import pydirectinput
 from entities.match_data import MatchData
+from entities.progress import print_progress
 
 
 class RecordVideo:
@@ -11,14 +12,18 @@ class RecordVideo:
         self.__video_file_dir = os.path.abspath(r'.\media\Videos')
         self.__replay_file_dir = os.path.abspath(r'.\media\replays')
         self.__match_data = match_data
+        self.total=self.__duration_in_seconds()+76
 
     def record(self):
         # self.__show_mouse_position()
-        print('Starting recording of the match...')
+        # print('Starting recording of the match...')
         self.remove_video_file()
         self.__run_game()
         self.__run_obs()
-        sleep(50)
+        for i in range(50):
+            sleep(1)
+            print_progress(i, self.total, prefix='Creating Thumbnail:')
+
         # Get the size of the screen
         screen_width, screen_height = pydirectinput.size()
 
@@ -31,19 +36,24 @@ class RecordVideo:
         pydirectinput.keyDown('n')
         pydirectinput.keyUp('n')
         sleep(1)
+        print_progress(50, self.total, prefix='Creating Thumbnail:')
         pydirectinput.keyDown('o')
         pydirectinput.keyUp('o')
         sleep(1)
+        print_progress(51, self.total, prefix='Creating Thumbnail:')
         pydirectinput.keyDown('u')
         pydirectinput.keyUp('u')
         sleep(5)
+        print_progress(56, self.total, prefix='Creating Thumbnail:')
         # select champion
         self.__select_player()
         
         sleep(2)
+        print_progress(58, self.total, prefix='Creating Thumbnail:')
         pydirectinput.keyDown('c')
         pydirectinput.keyUp('c')
         sleep(1)
+        print_progress(59, self.total, prefix='Creating Thumbnail:')
         # zoom out
 
         # Click on the center of the screen
@@ -64,18 +74,25 @@ class RecordVideo:
         
         
         self.__start_stop_recording()
-        sleep(self.__duration_in_seconds())
+        for i in range(self.__duration_in_seconds()):
+            print_progress(60+i, self.total, prefix='Gameplay recording:')
+            sleep(1)
         self.__start_stop_recording()
         sleep(10)
+        print_progress(60+self.__duration_in_seconds()+10, self.total, prefix='Gameplay recording:')
         # pydirectinput.click(962, 641)
         # pyautogui.click(962, 641)
         pyautogui.hotkey('alt', 'f4')
         sleep(1)
+        print_progress(60+self.__duration_in_seconds()+11, self.total, prefix='Gameplay recording:')
+        
         # pydirectinput.leftClick(962, 641)
         # pyautogui.click(962, 641)
         pyautogui.hotkey('alt', 'f4')
         sleep(5)
-        print('Recorded match')
+        print_progress(60+self.__duration_in_seconds()+16, self.total, prefix='Gameplay recording:')
+    
+        # print('Recorded match')
         return self.select_video_file()
 
     def __run_game(self):
@@ -123,7 +140,7 @@ class RecordVideo:
 
     def select_video_file(self):
         files = os.listdir(self.__video_file_dir)
-        print(files)
+        # print(files)
         
         file_path = os.path.abspath(os.path.join(self.__video_file_dir, files[0]))
         return file_path

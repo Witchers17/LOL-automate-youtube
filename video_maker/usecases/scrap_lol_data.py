@@ -5,12 +5,15 @@ from selenium.webdriver.common.by import By
 from entities.data_scrapper import DataScrapper
 from entities.match_data import MatchData, Player
 from usecases.data import save
+from entities.progress import print_progress
 
 
 class ScrapLolData(DataScrapper):
     def __init__(self) -> None:
         super().__init__()
+        self.total=100
         # URL
+        print_progress(0, self.total, prefix='Scraping Gameplay :')
         self.__replay_file_dir = os.path.abspath(r'.\media\replays')
         self.__url = 'https://www.leagueofgraphs.com/replays/with-high-kda/grandmaster/sr-ranked'
         # self.__url = 'https://www.leagueofgraphs.com/replays/with-high-kda/euw/grandmaster/sr-ranked'
@@ -30,8 +33,10 @@ class ScrapLolData(DataScrapper):
         }
 
     def get_match_data_and_download_replay(self) -> None:
-        print('staring get data and donwload replay...')
+        # print('staring get data and donwload replay...')
+        print_progress(1, self.total, prefix='Scraping Gameplay :')
         self.driver.get(self.__url)
+        print_progress(10, self.total, prefix='Scraping Gameplay :')
         table = self.driver.find_element(
             by=By.XPATH, value=self.__match_table_selector)
         text_list = table.text.split('\n')
@@ -43,13 +48,16 @@ class ScrapLolData(DataScrapper):
         self.match_data['patch'] = patch
         elements = self.driver.find_elements(by=By.XPATH, value=self.__champions_xpath_selector)
         elements[0].get_dom_attribute('title')
+        print_progress(15, self.total, prefix='Scraping Gameplay :')
         champions = self.__get_champions_names(elements=elements)
         # print("this is text_list:\n\n",text_list,"\n\n end")
+        print_progress(25, self.total, prefix='Scraping Gameplay :')
         self.match_data['team1']['players'] = self.__create_team_one(
             text_list=text_list, champions=champions)
         self.match_data['team2']['players'] = self.__create_team_two(
             text_list=text_list, champions=champions)
         mvp_data = self.__get_mvp_data(self.match_data)
+        print_progress(40, self.total, prefix='Scraping Gameplay :')
         self.match_data['mvp'] = self.match_data[mvp_data['team']]['players'][mvp_data['player_index']]
         self.match_data['loser'] = self.match_data[mvp_data['loser_team']]['players'][mvp_data['player_index']]['champion']
         self.match_data['player_role'] = mvp_data['player_role']
@@ -60,13 +68,19 @@ class ScrapLolData(DataScrapper):
         self.match_data['match']=region_link.get_property('href')
         link_array = region_link.get_property('href').split('/')
         self.match_data['region'] = link_array[4].upper()
+        print_progress(60, self.total, prefix='Scraping Gameplay :')
         # Save Data
         save(self.match_data)
-        print('saved information')
-        print('Starting game download')
+        print_progress(75, self.total, prefix='Scraping Gameplay :')
+        # print('saved information')
+        # print('Starting game download')
+        
         self.__remove_match()
+        print_progress(85, self.total, prefix='Scraping Gameplay :')
         self.__download_match()
+        print_progress(99, self.total, prefix='Scraping Gameplay :')
         self.quit()
+        print_progress(100, self.total, prefix='Scraping Gameplay :')
 
     def __get_champions_names(self, elements: list) -> list[str]:
         champions = []
@@ -88,7 +102,7 @@ class ScrapLolData(DataScrapper):
         pass
     def __create_team_one(self, text_list: list, champions: list) -> list[Player]:
         team_one = []
-        print("====team x======")
+        # print("====team x======")
         
         toolTips = self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/script")
         newTooltipData_str = toolTips.get_attribute('innerHTML').split("newTooltipData =")[1].split(";")[0]
@@ -179,7 +193,7 @@ class ScrapLolData(DataScrapper):
 
     def __create_team_two(self, text_list: list, champions: list) -> list[Player]:
         team_two = []
-        print("====team y======")
+        # print("====team y======")
         toolTips = self.driver.find_element(by=By.XPATH, value="//*[@id='mainContent']/script")
         newTooltipData_str = toolTips.get_attribute('innerHTML').split("newTooltipData =")[1].split(";")[0]
         # print(newTooltipData_str)
