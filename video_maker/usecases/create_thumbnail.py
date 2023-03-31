@@ -96,7 +96,7 @@ class CreateThumbnail:
         print_progress(91, self.total, prefix='Creating Thumbnail:')
         with Image.open(BytesIO(screenshot)) as img:
             img = img.convert('RGB')
-            img = img.resize((1280, 754))
+            img = img.resize((1280, 720))
             img.save(self.__thumb_path, quality=70)
         print_progress(100, self.total, prefix='Creating Thumbnail:')
         
@@ -170,7 +170,7 @@ class CreateThumbnail:
             height:4rem;
             align-items: center;
             border: 2px solid white;
-            margin: 2px 7px 5px 18px;
+            margin: 2px -2px 5px 18px;
         }
         .match {
             display: flex;
@@ -206,11 +206,11 @@ class CreateThumbnail:
             font-weight: bold;
         }
         .kdatext{
-            font-size: 58px;
-            padding: 0px 1.5rem;
+            font-size: 64px;
+            padding: 0px 2.5rem;
             background-color: #c9c8c6;
             color:black;
-            width:10rem;
+            width:13rem;
             font-weight: bold;
             border-radius:2rem;
             text-align-last: end;
@@ -234,6 +234,7 @@ class CreateThumbnail:
             background-color: rgba(255, 255, 255, .1);
             filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
             border: 3px solid white;
+            margin: 0px 2px;
           }
           .players1{
             width:167px;
@@ -242,7 +243,7 @@ class CreateThumbnail:
             background-color: rgba(255, 255, 255, .1);
             filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
             border: 5px solid white;
-            margin: 0px 7px;
+            margin: 0px 14px;
           }
           .playerlist{
             position: absolute;

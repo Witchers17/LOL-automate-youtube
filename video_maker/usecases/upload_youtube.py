@@ -150,7 +150,7 @@ class UploadYoutube:
         error = None
         retry = 0
         while response is None:
-            print(response)
+            print("=== Video uploding (wait until uploading finishe) ===")
             try:
                 # print("Uploading file...")
                 status, response = insert_request.next_chunk()
