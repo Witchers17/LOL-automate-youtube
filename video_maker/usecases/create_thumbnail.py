@@ -61,13 +61,17 @@ class CreateThumbnail:
             region="EUW"
         while True:
             no=random.randint(0,10)
-            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champion}_{no}.jpg'
+            name=champion
+            if(name=="Jarvaniv"):
+                name="JarvanIV"
+            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
 
             if res.status_code==200:
                 # print(imgUrl)
                 break
-            count=+1
+            count+=1
+            
             if(count>20):
                 return
         print_progress(40, self.total, prefix='Creating Thumbnail:')
