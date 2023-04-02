@@ -22,7 +22,7 @@ class RecordVideo:
         self.__run_obs()
         for i in range(50):
             sleep(1)
-            print_progress(i, self.total, prefix='Creating Thumbnail:')
+            print_progress(i, self.total, prefix='Gameplay recording:')
 
         # Get the size of the screen
         screen_width, screen_height = pydirectinput.size()
@@ -36,24 +36,24 @@ class RecordVideo:
         pydirectinput.keyDown('n')
         pydirectinput.keyUp('n')
         sleep(1)
-        print_progress(50, self.total, prefix='Creating Thumbnail:')
+        print_progress(50, self.total, prefix='Gameplay recording:')
         pydirectinput.keyDown('o')
         pydirectinput.keyUp('o')
         sleep(1)
-        print_progress(51, self.total, prefix='Creating Thumbnail:')
+        print_progress(51, self.total, prefix='Gameplay recording:')
         pydirectinput.keyDown('u')
         pydirectinput.keyUp('u')
         sleep(5)
-        print_progress(56, self.total, prefix='Creating Thumbnail:')
+        print_progress(56, self.total, prefix='Gameplay recording:')
         # select champion
         self.__select_player()
         
         sleep(2)
-        print_progress(58, self.total, prefix='Creating Thumbnail:')
+        print_progress(58, self.total, prefix='Gameplay recording:')
         pydirectinput.keyDown('c')
         pydirectinput.keyUp('c')
         sleep(1)
-        print_progress(59, self.total, prefix='Creating Thumbnail:')
+        print_progress(59, self.total, prefix='Gameplay recording:')
         # zoom out
 
         # Click on the center of the screen
