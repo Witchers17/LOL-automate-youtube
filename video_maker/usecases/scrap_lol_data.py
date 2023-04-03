@@ -44,7 +44,7 @@ class ScrapLolData(DataScrapper):
         self.match_data['team2']['result'] = text_list[0].split(' ')[-1]
         duration = text_list[0].split(' ')[3][1:-1]
         self.match_data['duration'] = duration
-        patch = text_list[-1].split(' ')[1][1:-1]
+        patch = text_list[-1].split("(")[1].split(")")[0]
         self.match_data['patch'] = patch
         elements = self.driver.find_elements(by=By.XPATH, value=self.__champions_xpath_selector)
         elements[0].get_dom_attribute('title')
