@@ -290,12 +290,16 @@ class ScrapLolData(DataScrapper):
             for player in match_data['team1']['players']:
                 team = 'team1'
                 loser_team = 'team2'
-                kdas.append(int(player['kda'].split(' ')[0]))
+                values=player['kda'].split(" / ")
+                kdaValue=(int(values[0])+int(values[1]))/int(values[2])
+                kdas.append(kdaValue)
         else:
             for player in match_data['team2']['players']:
                 team = 'team2'
                 loser_team = 'team1'
-                kdas.append(int(player['kda'].split(' ')[0]))
+                values=player['kda'].split(" / ")
+                kdaValue=(int(values[0])+int(values[1]))/int(values[2])
+                kdas.append(kdaValue)
         player_index = kdas.index(max(kdas))
         roles = ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
         return {
