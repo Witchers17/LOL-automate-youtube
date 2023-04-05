@@ -18,9 +18,11 @@ class RecordVideo:
         # self.__show_mouse_position()
         # print('Starting recording of the match...')
         self.remove_video_file()
-        self.__run_game()
         self.__run_obs()
-        for i in range(50):
+        sleep(5)
+        self.__run_game()
+        
+        for i in range(45):
             sleep(1)
             print_progress(i, self.total, prefix='Gameplay recording:')
 
