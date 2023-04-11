@@ -33,7 +33,7 @@ class UploadYoutube:
             'Platinum': '플래티넘',
             'Diamond': '다이아몬드',
             'Master': '마스터',
-            'Grandmaster': '그랜드마스터',
+            'GrandMaster': '그랜드마스터',
             'Challenger': '챌린저'
         }
 

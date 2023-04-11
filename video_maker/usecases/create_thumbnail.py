@@ -64,6 +64,10 @@ class CreateThumbnail:
             name=champion
             if(name=="Jarvaniv"):
                 name="JarvanIV"
+            if(name=="Twistedfate"):
+                name="Leesin"
+            if(name=="Leesin"):
+                name="LeeSin"
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
 
