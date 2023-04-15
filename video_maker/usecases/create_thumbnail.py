@@ -18,15 +18,23 @@ class CreateThumbnail:
         self.total=100
         print_progress(1, self.total, prefix='Creating Thumbnail:')
 
+    def exceptionHandle(self,name):
+        if(name == "Wukong"):
+            return "MonkeyKing"
+        else: return name
     def create_thumbnail(self):
         print_progress(5, self.total, prefix='Creating Thumbnail:')
-        champion = self.lol_data['mvp']['champion'].replace(
-            "'", "").capitalize().replace(
-            " ", "")
+        champion = self.lol_data['mvp']['champion']
+        champion = champion.replace("'", "& ")
+        champion = champion.replace("&","")
+        if(len(champion.split())==1):
+            champion = champion.capitalize()
+        champion = champion.replace(" ", "")
         # champion = self.lol_data['mvp']['champion']
+        champion = self.exceptionHandle(champion)
         print_progress(8, self.total, prefix='Creating Thumbnail:')
-        if champion=="KaiSa":
-            champion=="Kaisa"
+        # if champion=="KaiSa":
+        #     champion=="Kaisa"
         rank=self.lol_data['mvp']['rank']
         ranks= {
             "Iron": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/1.png",
@@ -62,12 +70,6 @@ class CreateThumbnail:
         while True:
             no=random.randint(0,10)
             name=champion
-            if(name=="Jarvaniv"):
-                name="JarvanIV"
-            if(name=="Twistedfate"):
-                name="Leesin"
-            if(name=="Leesin"):
-                name="LeeSin"
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
 
@@ -96,7 +98,7 @@ class CreateThumbnail:
         self.scrapper.driver.get('file://' + html_path)
         timer=51
         for i in range(10):
-            sleep(10)
+            sleep(0.5)
             print_progress(timer+i*2, self.total, prefix='Creating Thumbnail:')
         self.scrapper.driver.set_window_size(1280, 805)
         print_progress(81, self.total, prefix='Creating Thumbnail:')
@@ -316,3 +318,9 @@ class CreateThumbnail:
 """
         with open("./assets/thumbnail.html", "w",encoding='utf-8') as f:
             f.write(HTML)
+
+if __name__ ==  "__main__":
+    from usecases.data import load
+    lol_data: MatchData = load()
+    thumb_creator = CreateThumbnail(data_scrapper=DataScrapper(), data=lol_data)
+    thumb_creator.create_thumbnail()
