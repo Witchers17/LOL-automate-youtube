@@ -21,6 +21,8 @@ class CreateThumbnail:
     def exceptionHandle(self,name):
         if(name == "Wukong"):
             return "MonkeyKing"
+        elif(name == "KaiSa"):
+            return "Kaisa"
         else: return name
     def create_thumbnail(self):
         print_progress(5, self.total, prefix='Creating Thumbnail:')
@@ -62,6 +64,7 @@ class CreateThumbnail:
         loser=self.lol_data['loser']
         imgUrl=""
         count=0
+        # print(champion)
         # print("match region:",self.lol_data['region'],os.path.exists(f"assets/img/{self.lol_data['region']}.png"))
         if(os.path.exists(f"assets/img/{self.lol_data['region']}.png")):
             region=self.lol_data['region']
@@ -72,7 +75,7 @@ class CreateThumbnail:
             name=champion
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
-
+            # print(imgUrl)
             if res.status_code==200:
                 # print(imgUrl)
                 break
