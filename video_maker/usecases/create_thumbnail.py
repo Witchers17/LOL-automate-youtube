@@ -23,6 +23,8 @@ class CreateThumbnail:
             return "MonkeyKing"
         elif(name == "KaiSa"):
             return "Kaisa"
+        elif(name == "KhaZix"):
+            return "Khazix"
         else: return name
     def create_thumbnail(self):
         print_progress(5, self.total, prefix='Creating Thumbnail:')
