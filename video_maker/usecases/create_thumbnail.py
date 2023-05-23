@@ -28,6 +28,10 @@ class CreateThumbnail:
             return "Kaisa"
         elif(name == "KhaZix"):
             return "Khazix"
+        elif(name == "NunuWillump"):
+            return "Nunu"
+        elif(name == "BelVeth"):
+            return "Belveth"
         else: return name
     def create_thumbnail(self):
         print_progress(5, self.total, prefix='Creating Thumbnail:')
@@ -38,6 +42,7 @@ class CreateThumbnail:
             champion = champion.capitalize()
         champion = champion.replace(" ", "")
         # champion = self.lol_data['mvp']['champion']
+        # print(champion)
         champion = self.exceptionHandle(champion)
         print_progress(8, self.total, prefix='Creating Thumbnail:')
         # if champion=="KaiSa":

@@ -15,6 +15,8 @@ if not os.path.exists("media/uploaded"):
     os.makedirs("media/uploaded")
 if not os.path.exists("media/Videos"):
     os.makedirs("media/Videos")
+if not os.path.exists("media/AllThumbs"):
+    os.makedirs("media/AllThumbs")
 try:
     lol_data_scrapper = ScrapLolData()
     lol_data_scrapper.get_match_data_and_download_replay()
