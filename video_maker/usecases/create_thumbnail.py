@@ -15,6 +15,9 @@ class CreateThumbnail:
         self.scrapper = data_scrapper
         self.lol_data = data
         self.__thumb_path = os.path.abspath(r'.\media\thumb\thumb.png')
+        self.__replay_file_dir = os.path.abspath(r'.\media\replays')
+        file = os.listdir(self.__replay_file_dir)[0].split(".")[0]
+        self.__static_thumb_path = os.path.join(os.path.abspath(r'.\media\AllThumbs'),f'{file}.png')
         self.total=100
         print_progress(1, self.total, prefix='Creating Thumbnail:')
 
@@ -113,6 +116,7 @@ class CreateThumbnail:
             img = img.convert('RGB')
             img = img.resize((1280, 720))
             img.save(self.__thumb_path, quality=70)
+            img.save(self.__static_thumb_path, quality=70)
         print_progress(100, self.total, prefix='Creating Thumbnail:')
         
         self.scrapper.driver.quit()
