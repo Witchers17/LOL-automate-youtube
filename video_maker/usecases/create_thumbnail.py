@@ -83,6 +83,8 @@ class CreateThumbnail:
         while True:
             no=random.randint(0,10)
             name=champion
+            if(name == "Yuumi"):
+                no = random.choice([0,1,11,19,28,37,39])
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
             # print(imgUrl)
