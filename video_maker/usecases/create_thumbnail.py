@@ -8,7 +8,7 @@ import requests
 from entities.data_scrapper import DataScrapper
 from entities.match_data import MatchData
 from entities.progress import print_progress
-
+from bs4 import BeautifulSoup
 
 class CreateThumbnail:
     def __init__(self, data_scrapper: DataScrapper, data: MatchData) -> None:
@@ -35,6 +35,18 @@ class CreateThumbnail:
         elif(name == "BelVeth"):
             return "Belveth"
         else: return name
+    def getSkin(self, name):
+        # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
+        # make get request and use beautifulsoup and find the skin img urls
+        url = "https://www.leagueoflegends.com/en-gb/champions/{}/".format(name)
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, 'html.parser')
+        skinsImgTag = soup.find_all('img')
+        skinsUrls = list(set([skin.get('src') for skin in skinsImgTag]))
+        filtered_urls = [skinUrl for skinUrl in skinsUrls if skinUrl is not None and "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" in skinUrl]
+
+        return filtered_urls
+    
     def create_thumbnail(self):
         print_progress(5, self.total, prefix='Creating Thumbnail:')
         champion = self.lol_data['mvp']['champion']
@@ -82,21 +94,9 @@ class CreateThumbnail:
             region=self.lol_data['region']
         else:
             region="EUW"
-        while True:
-            no=random.randint(0,10)
-            name=champion
-            if(name in self.skins.keys()):
-                no = random.choice(self.skins[name])
-            imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
-            res=requests.get(imgUrl)
-            # print(imgUrl)
-            if res.status_code==200:
-                # print(imgUrl)
-                break
-            count+=1
-            
-            if(count>20):
-                return
+
+        imgUrl=random.choice(self.getSkin(champion))
+
         print_progress(40, self.total, prefix='Creating Thumbnail:')
         self.__create_html(
             kda=self.lol_data['mvp']['kda'].split("/"),
