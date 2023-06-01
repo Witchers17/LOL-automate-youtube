@@ -20,7 +20,9 @@ class CreateThumbnail:
         self.__static_thumb_path = os.path.join(os.path.abspath(r'.\media\AllThumbs'),f'{file}.png')
         self.total=100
         print_progress(1, self.total, prefix='Creating Thumbnail:')
-
+        self.skins ={
+            "Yuumi":[0,1,11,19,28,37,39],
+        }
     def exceptionHandle(self,name):
         if(name == "Wukong"):
             return "MonkeyKing"
@@ -83,8 +85,8 @@ class CreateThumbnail:
         while True:
             no=random.randint(0,10)
             name=champion
-            if(name == "Yuumi"):
-                no = random.choice([0,1,11,19,28,37,39])
+            if(name in self.skins.keys()):
+                no = random.choice(self.skins[name])
             imgUrl=f'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_{no}.jpg'
             res=requests.get(imgUrl)
             # print(imgUrl)
