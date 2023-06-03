@@ -110,7 +110,7 @@ class ScrapLolData(DataScrapper):
         try:
             newTooltipData = json.loads(newTooltipData_str)
         except Exception as e:
-            print(e)
+            # print(e)
             newTooltipData_str=newTooltipData_str.split("}")[0]
             newTooltipData_str="".join(newTooltipData_str)
             try:
@@ -202,7 +202,7 @@ class ScrapLolData(DataScrapper):
         try:
             newTooltipData = json.loads(newTooltipData_str)
         except Exception as e:
-            print(e)
+            # print(e)
             newTooltipData_str=newTooltipData_str.split("}")[0]
             newTooltipData_str="".join(newTooltipData_str)
             try:

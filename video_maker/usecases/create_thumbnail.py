@@ -34,6 +34,8 @@ class CreateThumbnail:
             return "Nunu"
         elif(name == "BelVeth"):
             return "Belveth"
+        elif(name == "RenataGlasc"):
+            return "Renata"
         else: return name
     def getSkin(self, name):
         # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
