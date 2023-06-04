@@ -36,11 +36,14 @@ class CreateThumbnail:
             return "Belveth"
         elif(name == "RenataGlasc"):
             return "Renata"
+        elif(name == "TwistedFate"):
+            return "twisted-fate"
         else: return name
     def getSkin(self, name):
         # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
         # make get request and use beautifulsoup and find the skin img urls
         url = "https://www.leagueoflegends.com/en-gb/champions/{}/".format(name)
+        # print(url)
         r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         skinsImgTag = soup.find_all('img')
@@ -96,8 +99,11 @@ class CreateThumbnail:
             region=self.lol_data['region']
         else:
             region="EUW"
-
-        imgUrl=random.choice(self.getSkin(champion))
+        skins = self.getSkin(champion)
+        if(len(skins)==0):
+            print("Sent mail to tamilcomway@gmail.com")
+            return False
+        imgUrl=random.choice(skins)
 
         print_progress(40, self.total, prefix='Creating Thumbnail:')
         self.__create_html(
@@ -131,6 +137,7 @@ class CreateThumbnail:
         print_progress(100, self.total, prefix='Creating Thumbnail:')
         
         self.scrapper.driver.quit()
+        return True
 
     def __create_html(self, kda: str, mvp: str, vs: str, rank: str, patch: str, imgUrl: str,rankIcon:str,spellImg:list,opponentIcon:str,region):
         none_vars = []
