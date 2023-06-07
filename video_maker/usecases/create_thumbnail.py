@@ -101,7 +101,8 @@ class CreateThumbnail:
             region="EUW"
         skins = self.getSkin(champion)
         if(len(skins)==0):
-            print("Sent mail to tamilcomway@gmail.com")
+            print("\nSent message to developer!")
+            print("Champion name: " + str(champion))
             return False
         imgUrl=random.choice(skins)
 
