@@ -37,7 +37,9 @@ class CreateThumbnail:
         elif(name == "RenataGlasc"):
             return "Renata"
         elif(name == "TwistedFate"):
-            return "twisted-fate"
+            return "Twisted-fate"
+        elif(name == "LeeSin"):
+            return "lee-sin"
         else: return name
     def getSkin(self, name):
         # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
@@ -62,6 +64,7 @@ class CreateThumbnail:
         champion = champion.replace(" ", "")
         # champion = self.lol_data['mvp']['champion']
         # print(champion)
+        championTemp = champion
         champion = self.exceptionHandle(champion)
         print_progress(8, self.total, prefix='Creating Thumbnail:')
         # if champion=="KaiSa":
@@ -101,8 +104,10 @@ class CreateThumbnail:
             region="EUW"
         skins = self.getSkin(champion)
         if(len(skins)==0):
-            print("\n==> Thumbnail creation failed \n==> Sent message to developer!")
+            print("\n==> Thumbnail creation failed \n==> Sent message to developer!\n==> Take a screenshot and sent mail to : tamilcomway@gmail.com")
+            # print("==> Champion Temp: " + champonTemp)
             print("==> Champion name: " + str(champion))
+            print("==> URL:",imgUrl)
             return False
         imgUrl=random.choice(skins)
 
@@ -116,7 +121,7 @@ class CreateThumbnail:
             patch=self.lol_data['patch'],
             rankIcon=rankIcon,
             spellImg=spellImg,
-            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{champion.replace(" ","")}.png',
+            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{championTemp.replace(" ","")}.png',
             region=region
         )
         print_progress(50, self.total, prefix='Creating Thumbnail:')
