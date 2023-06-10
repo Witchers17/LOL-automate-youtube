@@ -29,7 +29,7 @@ class CreateThumbnail:
         elif(name == "KaiSa"):
             return "Kaisa"
         elif(name == "KhaZix"):
-            return "Khazix"
+            return "kha-zix"
         elif(name == "NunuWillump"):
             return "Nunu"
         elif(name == "BelVeth"):
@@ -40,6 +40,8 @@ class CreateThumbnail:
             return "Twisted-fate"
         elif(name == "LeeSin"):
             return "lee-sin"
+        elif(name == "RekSai"):
+            return "rek-sai"
         else: return name
     def getSkin(self, name):
         # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
@@ -102,7 +104,9 @@ class CreateThumbnail:
             region=self.lol_data['region']
         else:
             region="EUW"
+        # print(champion)
         skins = self.getSkin(champion)
+        # print(skins)
         if(len(skins)==0):
             print("\n==> Thumbnail creation failed \n==> Sent message to developer!\n==> Take a screenshot and sent mail to : tamilcomway@gmail.com")
             # print("==> Champion Temp: " + champonTemp)
