@@ -24,10 +24,11 @@ class CreateThumbnail:
             "Yuumi":[0,1,11,19,28,37,39],
         }
     def exceptionHandle(self,name):
+        # print(name)
         if(name == "Wukong"):
             return "MonkeyKing"
         elif(name == "KaiSa"):
-            return "Kaisa"
+            return "Kai-sa"
         elif(name == "KhaZix"):
             return "kha-zix"
         elif(name == "NunuWillump"):
@@ -42,6 +43,27 @@ class CreateThumbnail:
             return "lee-sin"
         elif(name == "RekSai"):
             return "rek-sai"
+        else: return name
+    def iconReplace(self,name):
+
+        if(name == "KaiSa"):
+            return "Kaisa"
+        elif(name == "KhaZix"):
+            return "Khazix"
+        elif(name == "NunuWillump"):
+            return "Nunu"
+        elif(name == "BelVeth"):
+            return "Belveth"
+        elif(name == "RenataGlasc"):
+            return "Renata"
+        elif(name == "TwistedFate"):
+            return "Twisted-fate"
+        elif(name == "LeeSin"):
+            return "lee-sin"
+        elif(name == "RekSai"):
+            return "rek-sai"
+        elif(name == "Wukong"):
+            return "MonkeyKing"
         else: return name
     def getSkin(self, name):
         # url = "https://www.leagueoflegends.com/en-gb/champions/{name}/"
@@ -116,6 +138,7 @@ class CreateThumbnail:
         imgUrl=random.choice(skins)
 
         print_progress(40, self.total, prefix='Creating Thumbnail:')
+        oppIconImg = self.iconReplace(championTemp.replace(" ",""))
         self.__create_html(
             kda=self.lol_data['mvp']['kda'].split("/"),
             imgUrl=imgUrl,
@@ -125,7 +148,7 @@ class CreateThumbnail:
             patch=self.lol_data['patch'],
             rankIcon=rankIcon,
             spellImg=spellImg,
-            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{championTemp.replace(" ","")}.png',
+            opponentIcon=f'https://opgg-static.akamaized.net/meta/images/lol/champion/{oppIconImg}.png',
             region=region
         )
         print_progress(50, self.total, prefix='Creating Thumbnail:')
