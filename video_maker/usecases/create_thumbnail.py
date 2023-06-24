@@ -25,9 +25,9 @@ class CreateThumbnail:
         }
     def exceptionHandle(self,name):
         # print(name)
-        if(name == "Wukong"):
-            return "MonkeyKing"
-        elif(name == "KaiSa"):
+        # if(name == "Wukong"):
+        #     return "MonkeyKing"
+        if(name == "KaiSa"):
             return "Kai-sa"
         elif(name == "KhaZix"):
             return "kha-zix"
@@ -43,6 +43,10 @@ class CreateThumbnail:
             return "lee-sin"
         elif(name == "RekSai"):
             return "rek-sai"
+        elif(name == "KSante"):
+            return "k-sante"
+        elif(name == "KogMaw"):
+            return "Kog-maw"
         else: return name
     def iconReplace(self,name):
 
@@ -61,7 +65,7 @@ class CreateThumbnail:
         elif(name == "LeeSin"):
             return "lee-sin"
         elif(name == "RekSai"):
-            return "rek-sai"
+            return "RekSai"
         elif(name == "Wukong"):
             return "MonkeyKing"
         else: return name
@@ -71,6 +75,9 @@ class CreateThumbnail:
         url = "https://www.leagueoflegends.com/en-gb/champions/{}/".format(name)
         # print(url)
         r = requests.get(url)
+        # if r.status_code is '404':
+        #     url = "https://www.leagueoflegends.com/en-pl/champions/{}/".format(name)
+        #     r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         skinsImgTag = soup.find_all('img')
         skinsUrls = list(set([skin.get('src') for skin in skinsImgTag]))
