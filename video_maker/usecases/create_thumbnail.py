@@ -34,7 +34,7 @@ class CreateThumbnail:
         elif(name == "NunuWillump"):
             return "Nunu"
         elif(name == "BelVeth"):
-            return "Belveth"
+            return "Bel-veth"
         elif(name == "RenataGlasc"):
             return "Renata"
         elif(name == "TwistedFate"):
@@ -48,6 +48,7 @@ class CreateThumbnail:
         elif(name == "KogMaw"):
             return "Kog-maw"
         else: return name
+        
     def iconReplace(self,name):
 
         if(name == "KaiSa"):
@@ -60,10 +61,6 @@ class CreateThumbnail:
             return "Belveth"
         elif(name == "RenataGlasc"):
             return "Renata"
-        elif(name == "TwistedFate"):
-            return "Twisted-fate"
-        elif(name == "LeeSin"):
-            return "lee-sin"
         elif(name == "RekSai"):
             return "RekSai"
         elif(name == "Wukong"):
