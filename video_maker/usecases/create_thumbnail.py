@@ -47,6 +47,8 @@ class CreateThumbnail:
             return "k-sante"
         elif(name == "KogMaw"):
             return "Kog-maw"
+        elif(name == "JarvanIV"):
+            return "jarvan-iv"
         else: return name
         
     def iconReplace(self,name):

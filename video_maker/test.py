@@ -18,6 +18,8 @@ if not os.path.exists("media/Videos"):
 if not os.path.exists("media/AllThumbs"):
     os.makedirs("media/AllThumbs")
 try:
+    # lol_data_scrapper = ScrapLolData()
+    # lol_data_scrapper.get_match_data_and_download_replay()
     lol_data: MatchData = load()
     thumb_creator = CreateThumbnail(data_scrapper=DataScrapper(), data=lol_data)
     result = thumb_creator.create_thumbnail()
