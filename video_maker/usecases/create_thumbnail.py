@@ -105,11 +105,11 @@ class CreateThumbnail:
             "Bronze": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/2.png",
             "Silver": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/3.png",
             "Gold": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/4.png",
-            "Platinum": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/5.png",
-            "Diamond": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/6.png",
-            "Master": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/7.png",
-            "GrandMaster": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/8.png",
-            "Challenger": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/9.png"
+            "Platinum": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/6.png",
+            "Diamond": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/7.png",
+            "Master": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/8.png",
+            "GrandMaster": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/9.png",
+            "Challenger": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/10.png"
         }
         print_progress(12, self.total, prefix='Creating Thumbnail:')
         rankIcon=ranks.get(rank)
