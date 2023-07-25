@@ -109,7 +109,8 @@ class CreateThumbnail:
             "Diamond": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/7.png",
             "Master": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/8.png",
             "GrandMaster": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/9.png",
-            "Challenger": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/10.png"
+            "Challenger": "https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/10.png",
+            "I":"https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/7.png"
         }
         print_progress(12, self.total, prefix='Creating Thumbnail:')
         rankIcon=ranks.get(rank)
