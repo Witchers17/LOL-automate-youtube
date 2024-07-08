@@ -18,19 +18,19 @@ if not os.path.exists("media/Videos"):
 if not os.path.exists("media/AllThumbs"):
     os.makedirs("media/AllThumbs")
 try:
-    lol_data_scrapper = ScrapLolData()
-    lol_data_scrapper.get_match_data_and_download_replay()
+    # lol_data_scrapper = ScrapLolData()
+    # lol_data_scrapper.get_match_data_and_download_replay()
     lol_data: MatchData = load()
     thumb_creator = CreateThumbnail(data_scrapper=DataScrapper(), data=lol_data)
     result = thumb_creator.create_thumbnail()
     if(not result):
         raise Exception("Server issue")
-    video_recorder = RecordVideo(lol_data)
-    video_file_name = video_recorder.record()
+    # video_recorder = RecordVideo(lol_data)
+    # video_file_name = video_recorder.record()
     # video_file_name = video_recorder.select_video_file()
 
-    youtube_uploader = UploadYoutube(lol_data, video_file_name)
-    youtube_uploader.upload_video()
-    video_recorder.remove_video_file()
+    # youtube_uploader = UploadYoutube(lol_data, video_file_name)
+    # youtube_uploader.upload_video()
+    # video_recorder.remove_video_file()
 except Exception as e:
     print(e)
